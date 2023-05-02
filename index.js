@@ -31,7 +31,7 @@ const errorRoute = require('./routes/errorRoute')
 
 
 mongoose.set('strictQuery', false);
-mongoose.connect('mongodb://127.0.0.1:27017/personoperations', (err) => {
+mongoose.connect('mongodb+srv://swalih:9207628712@cluster0.268ectw.mongodb.net/personoperations', (err) => {
     if (err) {
         console.log('DataBase not connected')
     } else {
