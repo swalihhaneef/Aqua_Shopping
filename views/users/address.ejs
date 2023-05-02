@@ -1,0 +1,53 @@
+
+
+<%- include('../layouts/userheader.ejs') %>
+<div class="col-md-6 order-md-1" style="margin-top: 100px;">
+  <div>
+    <p>do you want add new address ?</p><a href="/addNewAddress">add new address</a>
+  </div>
+
+
+    <% if(users.address.length > 0) { %>
+      <% for(let i = 0; i < users.address.length; i++) { %>
+        
+          <div class="card border-dark mt-3" style="margin-bottom: 50px;" >
+
+            <div class="card-body">
+              <h5 class="card-title text-center"><%=users.address[i].first_name%></h5>
+                    
+                    <p class="card-text"><b>Address </b> : <%=users.address[i].house%>,<%=users.address[i].land_mark%>,<%=users.address[i].town%>,<%=users.address[i].state%></p>
+                    
+                    <p class="card-text"><b>Pin code </b> : <%=users.address[i].pin_code%></p>
+                    <p class="card-text"><b>Mobile No </b> : <%=users.address[i].phone%></p>
+                    <a class="btn btn-secondary" href="/edit_address?id=<%=users.address[i]._id%>&index=<%= i %>">edit</a>
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter">
+                     delete
+                    </button>
+            </div>
+          </div>
+                        
+                                   <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                      <div class="modal-content">
+                                        <div class="modal-header">
+                                          <h5 class="modal-title" id="exampleModalLongTitle">Are you sure?</h5>
+                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                          </button>
+                                        </div>
+                                        <div class="modal-body">
+                                          <p>Do you really want to delete ?</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                          <button type="button" class="btn btn-primary"><a class=" text-light text-decoration-none" href="/delete_address?id=<%=users.address[i]._id%>&index=<%= i %>">delete</a>
+                                          </button>    
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                   <% } %>
+                                   <% } %>
+</div>
+  
+<%- include('../layouts/userfooter.ejs') %>

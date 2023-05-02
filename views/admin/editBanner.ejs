@@ -1,0 +1,66 @@
+<%- include('../layouts/header.ejs') %>
+            <!-- PAGE INNER
+            ================================================== -->
+            <div class="page-inner">
+
+                <!-- PAGE MAIN WRAPPER
+                ================================================== -->
+                <div id="main-wrapper">
+                    <!-- row -->
+                    <div class="row g-xl-3">
+                        <div class="col-xl-8 grid-margin">
+                            <div class="card card-white mb-3">
+                                <div class="card-heading clearfix">
+                                    <h4 class="card-title">Edit Banner</h4>
+                                </div>
+                                <div class="card-body">
+
+                                    <form class="needs-validation" action="/admin/update_banner?id=<%= banner._id %>" method="post" enctype="multipart/form-data">
+                                        <div class="row">
+                                            <div class="col-md-12 mb-3">
+                                                <label for="validationCustom01">header</label>
+                                                <input type="text" class="form-control" name="header" placeholder="Enter the header of the banner" value="<%= banner.header %>">
+                                                <span id="nameError"></span><br>
+                                            </div>
+
+                                            
+                                            
+                                            <div class="col-md-12 mb-3">
+                                                <label for="validationCustom01">Banner text down</label>
+                                                <input type="text" class="form-control" name="banner_text_down" placeholder="Write the banner text down" value="<%= banner.banner_text_down %>">
+                                                <span id="nameError"></span><br>
+                                            </div>                                            
+                                        </div>
+                                        <div class="card card-white mb-3">
+                                          <div class="card-heading clearfix">
+                                              <h4 class="card-title">Media</h4>
+                                          </div>
+                                          <div class="card-body">
+                                              <div class="row">
+                                                  <div class="col-md-12">
+                                                      <div>
+                                                        <input type="file" class="form-control-file" name="image" placeholder="Upload the image of the product" multiple>
+                                                        <img width="250" height="250" class="me-5" src="product-image/<%= banner.images[0] %>" alt="">
+                                                      </div>
+                                                  </div>
+                                              </div>
+          
+                                          </div>
+                                      </div>
+                                      <div class="d-flex justify-content-center">
+                                        <button type="submit"  class="btn btn-primary mb-2 ">update</button>
+                                      <span id="bannersubmitError"></span>
+                                      </div>
+                                    
+                                    </form>
+
+                                </div>
+                            </div>
+                           
+                            
+                        </div>
+                        
+                    </div>
+                    <!-- end row -->
+                </div>
+<%- include('../layouts/footer.ejs') %>

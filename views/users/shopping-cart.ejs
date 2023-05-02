@@ -1,0 +1,242 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+<%- include('../layouts/userheader.ejs') %>
+<style>
+	.table-shopping-cart {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.table-shopping-cart th, .table-shopping-cart td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ccc;
+}
+
+.table-shopping-cart th {
+  background-color: #f5f5f5;
+  font-weight: bold;
+}
+
+.table-shopping-cart td {
+  vertical-align: middle;
+}
+
+.table-shopping-cart img {
+  max-width: 50px;
+  max-height: 50px;
+}
+
+</style>
+	<form class="bg0 p-t-75">
+		<div class="container">
+			<div class="row">
+				<% if(cart.item.length>0){%>
+				<div class="col-lg-10 col-xl-7 m-lr-auto m-b-50">
+					<div class="m-l-25 m-r--38 m-lr-0-xl">
+						<div class="wrap-table-shopping-cart">
+							
+							
+							<table class="table-shopping-cart">
+								<tr class="table_head">
+									<th  >Product</th>    
+									<th >Price</th>
+									<th >Quantity</th>
+									<th class="text-center">Total</th>
+									<th class="text-center">action</th>                                
+								</tr>                               
+                                <% for( let i = 0; i <cart.item.length; i++ ) { %> 									
+                                    <tr class="table_row">
+										<td col >
+                                            <div class="how-itemcart1">
+                                                <img  src="product-image/<%=cart.item[i].product.image[0]%>"  alt="IMG">
+												<small style="display: inline-block; max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: normal;"> <%=cart.item[i].product.name%> </small>
+
+                                            </div>
+											
+                                        </td>
+										
+                                     
+                                        
+                                        <td ><%=cart.item[i].product.price%></td>                                     
+										<td class="">
+											<div class="wrap-num-product flex-w  ">
+												<div class="btn btn-icon ">
+													<p  onclick="minus('<%=cart.item[i].product._id %>')"><i class="fs-16 zmdi zmdi-minus"></i></p>
+												</div>
+												<input class="mtext-104 cl3 txt-center num-product" type="number" id="<%=cart.item[i].product._id%>quantity"  value=<%=cart.item[i].quantity%>>
+                                            	<div class="btn ">
+													<p onclick="aju('<%=cart.item[i].product._id %>','<%=cart.item[i].product.stock %>')"><i class="fs-16 zmdi zmdi-plus"></i></p>
+												</div> 
+											</div>  
+										</td>
+                                        <td class=""  id="<%=cart.item[i].product._id %>price" >₹<%=cart.item[i].total%> </td>
+										<td class="text-center"><a href="/delete-item?id=<%=cart.item[i].product._id %>">
+											<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M19 4h-3.5l-1-1h-5l-1 1H5v2h14M6 19a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V7H6v12Z"/></svg>
+										</a></td>
+                                    </tr>
+									
+                                    <% } %>
+									
+							</table>
+									
+
+
+
+								
+							
+                           
+						</div>
+
+					</div>
+				</div>
+
+				<div class="col-sm-10 col-lg-7 col-xl-5 m-lr-auto m-b-50">
+					<div class="bor10 p-lr-40 p-t-30 p-b-40 m-l-63 m-r-40 m-lr-0-xl p-lr-15-sm">
+						<h4 class="mtext-109 cl2 p-b-30">
+							Order Summary
+						</h4>
+						<div class="flex-w flex-t bor12 p-t-15 p-b-30">
+							 <div class=" w-full-ssm mt-3">
+								<span class="stext-110 cl2">
+									Grand Total:₹  
+								</span>
+							</div> 
+							 <div class=" p-t-1 mt-3">
+								<span id="total" class="mtext-110 cl2">
+										<%=cart.grandTotalPrice%>
+								</span>
+							</div> 
+							
+
+							
+						</div>
+
+						<div class="flex-w flex-t p-t-27 p-b-33">
+							<div class="size-208">
+								<span class="mtext-101 cl2">
+									
+								</span>
+							</div>
+
+							<div class="size-209 p-t-1">
+								<span class="mtext-110 cl2">
+									
+								</span>
+							</div>
+						</div>
+
+						<a href="/checkout" class="flex-c-m text-decoration-none stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
+							Proceed to Checkout
+						</a>
+					</div>
+				</div>
+				<% }else{ %>
+					<div class="row text-center">
+						<h3 class="text-danger">Your cart is empty </h3>
+					</div>
+				
+					<br>
+					<br>
+					<div class="container ">
+						<div class="row isotope-grid" style="margin-top: 30px;">
+						<% if(product.length >0){%>
+							<% for(let i=0;i<product.length;i++){%>
+						<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
+						
+							<div class="block2">
+								<div class="block2-pic hov-img0">
+									<img src="product-image/<%= product[i].image[0] %>" alt="IMG-PRODUCT">
+		
+								
+								</div>
+		
+								<div class="block2-txt flex-w flex-t p-t-14">
+									<div class="block2-txt-child1 flex-col-l ">
+										<a href="/product-details?id=<%= product[i]._id %>" class="stext-104 tcl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+											<%= product[i].name %>
+										</a>
+		
+										<span class="stext-105 cl3">
+											<%= product[i].price %>
+										</span>
+									</div>
+									
+									<div class="block2-txt-child2 flex-r p-t-3">
+										
+									</div>
+								</div>
+							</div>
+						</div>
+		
+						<%}}%>  
+					</div>
+				</div>
+					<div class="flex-c-m flex-w w-full p-t-45" style="margin-bottom: 20px;">
+						<a href="/shop" class="flex-c-m stext-101 cl5 size-103 bg2 bor1 hov-btn1 p-lr-15 trans-04 text-decoration-none">
+							Load More
+						</a>
+					</div>
+					<% } %>
+		</div>	
+	</div>
+	</form>
+
+	<%- include('../layouts/userfooter.ejs') %>
+
+<script>
+    // Increment function
+const aju=function(id,stock) {
+	const quantity = document.getElementById(`${id}quantity`)
+	console.log(quantity.value,'heyyy',quantity.value<stock,stock);
+
+	if(quantity.value<stock){
+		$.ajax({
+    type: "post",
+    url: "/increment",
+    dataType:'json',
+    contentType:'application/json',
+    data:JSON.stringify({ id: id }),
+    success: function(data) {
+		console.log('UDdgsdkgsdh');
+    if(data.id==id){
+        $(`#${id}price`).text(data.total)
+        $(`#total`).text(data.grandTotals)
+         $(`#${id}quantity`).val(data.quantity)
+
+		console.log('UDdgsdkgsdh');
+    }
+      console.log(data);
+    },
+   
+  });
+	} else{
+		swal('oops','product out of stock',"error")
+		
+	}
+	console.log('sjxhsu');
+  
+}
+// Decrement function
+const minus =function(id) {
+    console.log('hftvftfv')
+  $.ajax({
+    type: "post",
+    url: "/decrement",
+    contentType:'application/json',
+    data:JSON.stringify({id:id}),
+	success: function(data) {
+		console.log('UDdgsdkgsdh');
+      if(data.product==id){
+		$(`#${id}price`).text(data.total)
+        $(`#total`).text(data.grandTotals)
+         $(`#${id}quantity`).val(data.quantity)
+
+      }
+      console.log(data);
+    },
+    
+  });
+}
+</script>

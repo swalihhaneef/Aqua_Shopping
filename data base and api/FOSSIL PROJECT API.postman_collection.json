@@ -1,0 +1,1668 @@
+{
+	"info": {
+		"_postman_id": "e5b87ddb-0f75-49e3-ba07-dc04e19859ed",
+		"name": "FOSSIL PROJECT API",
+		"description": "# Introduction\nWhat does your API do?\n\n# Overview\nThings that the developers should know about\n\n# Authentication\nWhat is the preferred way of using the API?\n\n# Error Codes\nWhat errors and status codes can a user expect?\n\n# Rate limit\nIs there a limit to the number of requests a user can send?",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25841586"
+	},
+	"item": [
+		{
+			"name": "/admin",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "/admin",
+					"path": [
+						"admin"
+					]
+				},
+				"description": "admin signUp"
+			},
+			"response": [
+				{
+					"name": "Default",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "/admin",
+							"path": [
+								"admin"
+							]
+						}
+					},
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "successfully get the admin page"
+				}
+			]
+		},
+		{
+			"name": "/admin/login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "email,password"
+				},
+				"url": {
+					"raw": "/admin/login",
+					"path": [
+						"admin",
+						"login"
+					]
+				},
+				"description": "admin email and password"
+			},
+			"response": [
+				{
+					"name": "Default",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "email,password"
+						},
+						"url": {
+							"raw": "/admin/login",
+							"path": [
+								"admin",
+								"login"
+							]
+						}
+					},
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "successfully admin logged in"
+				}
+			]
+		},
+		{
+			"name": "Untitled Request",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": ""
+				},
+				"description": "this is the page for admin home page"
+			},
+			"response": [
+				{
+					"name": "Default",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": ""
+						}
+					},
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "successfully entered in the admin panel"
+				}
+			]
+		},
+		{
+			"name": "/admin/products",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "/admin/products",
+					"path": [
+						"admin",
+						"products"
+					]
+				},
+				"description": "Entered to product list"
+			},
+			"response": [
+				{
+					"name": "Default",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "/admin/products",
+							"path": [
+								"admin",
+								"products"
+							]
+						}
+					},
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "now admin can see the products"
+				}
+			]
+		},
+		{
+			"name": "admin/products/addProducts",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "category,product name,price,quatintity,product image,Brand image,Brand name,product discrption,Material type"
+				},
+				"url": {
+					"raw": "admin/products/addProducts",
+					"host": [
+						"admin"
+					],
+					"path": [
+						"products",
+						"addProducts"
+					]
+				},
+				"description": "admin can manage the product data"
+			},
+			"response": [
+				{
+					"name": "Default",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "category,product name,price,quatintity,product image,Brand image,Brand name,product discrption,Material type"
+						},
+						"url": {
+							"raw": "admin/products/addProducts",
+							"host": [
+								"admin"
+							],
+							"path": [
+								"products",
+								"addProducts"
+							]
+						}
+					},
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "admin can now add new products successfully"
+				}
+			]
+		},
+		{
+			"name": "admin/products/addCoupon",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "product name,coupon code,From,To,discount"
+				},
+				"url": {
+					"raw": "admin/products/addCoupon",
+					"host": [
+						"admin"
+					],
+					"path": [
+						"products",
+						"addCoupon"
+					]
+				},
+				"description": "For adding the coupon"
+			},
+			"response": [
+				{
+					"name": "Default",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "product name,coupon code,From,To,discount"
+						},
+						"url": {
+							"raw": "admin/products/addCoupon",
+							"host": [
+								"admin"
+							],
+							"path": [
+								"products",
+								"addCoupon"
+							]
+						}
+					},
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "admin can add coupon to the products"
+				}
+			]
+		},
+		{
+			"name": "admin/products/editProducts/id",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "product name,brand name,description,price,quantity,productImage"
+				},
+				"url": {
+					"raw": "admin/products/editProducts/id",
+					"host": [
+						"admin"
+					],
+					"path": [
+						"products",
+						"editProducts",
+						"id"
+					]
+				},
+				"description": "admin can edit products"
+			},
+			"response": [
+				{
+					"name": "Default",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "product name,brand name,description,price,quantity,productImage"
+						},
+						"url": {
+							"raw": "admin/products/editProducts/id",
+							"host": [
+								"admin"
+							],
+							"path": [
+								"products",
+								"editProducts",
+								"id"
+							]
+						}
+					},
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "successfull"
+				}
+			]
+		},
+		{
+			"name": "admin/products/deleteProducts/id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "admin/products/deleteProducts/id",
+					"host": [
+						"admin"
+					],
+					"path": [
+						"products",
+						"deleteProducts",
+						"id"
+					]
+				},
+				"description": "Admin can delete products"
+			},
+			"response": [
+				{
+					"name": "Default",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "admin/products/deleteProducts/id",
+							"host": [
+								"admin"
+							],
+							"path": [
+								"products",
+								"deleteProducts",
+								"id"
+							]
+						}
+					},
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "successfull"
+				}
+			]
+		},
+		{
+			"name": "admin/users/usersList",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "username.email,password,phone,status,address,profileImage"
+				},
+				"url": {
+					"raw": "admin/users/usersList",
+					"host": [
+						"admin"
+					],
+					"path": [
+						"users",
+						"usersList"
+					]
+				},
+				"description": "Admin can view all"
+			},
+			"response": [
+				{
+					"name": "Default",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "username.email,password,phone,status,address,profileImage"
+						},
+						"url": {
+							"raw": "admin/users/usersList",
+							"host": [
+								"admin"
+							],
+							"path": [
+								"users",
+								"usersList"
+							]
+						}
+					},
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "successfull"
+				}
+			]
+		},
+		{
+			"name": "admin/users/view/deleteUser/user_id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "admin/users/view/deleteUser/user_id",
+					"host": [
+						"admin"
+					],
+					"path": [
+						"users",
+						"view",
+						"deleteUser",
+						"user_id"
+					]
+				},
+				"description": "Admin can delete user"
+			},
+			"response": [
+				{
+					"name": "Default",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "admin/users/view/deleteUser/user_id",
+							"host": [
+								"admin"
+							],
+							"path": [
+								"users",
+								"view",
+								"deleteUser",
+								"user_id"
+							]
+						}
+					},
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "successfull"
+				}
+			]
+		},
+		{
+			"name": "admin/user/view/blockUser/user_id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "admin/user/view/blockUser/user_id",
+					"host": [
+						"admin"
+					],
+					"path": [
+						"user",
+						"view",
+						"blockUser",
+						"user_id"
+					]
+				},
+				"description": "admin can block user"
+			},
+			"response": [
+				{
+					"name": "Default",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "admin/user/view/blockUser/user_id",
+							"host": [
+								"admin"
+							],
+							"path": [
+								"user",
+								"view",
+								"blockUser",
+								"user_id"
+							]
+						}
+					},
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "successfull"
+				}
+			]
+		},
+		{
+			"name": "admin/user/view/unblockUser/user_id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "admin/user/view/unblockUser/user_id",
+					"host": [
+						"admin"
+					],
+					"path": [
+						"user",
+						"view",
+						"unblockUser",
+						"user_id"
+					]
+				},
+				"description": "admin can unblock user"
+			},
+			"response": [
+				{
+					"name": "Default",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "admin/user/view/unblockUser/user_id",
+							"host": [
+								"admin"
+							],
+							"path": [
+								"user",
+								"view",
+								"unblockUser",
+								"user_id"
+							]
+						}
+					},
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "succesfull"
+				}
+			]
+		},
+		{
+			"name": "admin/orders",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "admin/orders",
+					"host": [
+						"admin"
+					],
+					"path": [
+						"orders"
+					]
+				},
+				"description": "Admin entered to ordered list"
+			},
+			"response": [
+				{
+					"name": "Default",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "admin/orders",
+							"host": [
+								"admin"
+							],
+							"path": [
+								"orders"
+							]
+						}
+					},
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "successfull"
+				}
+			]
+		},
+		{
+			"name": "admin/orders/totalOrders/oder_id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "admin/orders/totalOrders/oder_id",
+					"host": [
+						"admin"
+					],
+					"path": [
+						"orders",
+						"totalOrders",
+						"oder_id"
+					]
+				},
+				"description": "admin ccan view oders"
+			},
+			"response": [
+				{
+					"name": "Default",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "admin/orders/totalOrders/oder_id",
+							"host": [
+								"admin"
+							],
+							"path": [
+								"orders",
+								"totalOrders",
+								"oder_id"
+							]
+						}
+					},
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "succesfull"
+				}
+			]
+		},
+		{
+			"name": "admin/orders/userOrders/order_id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "approve,cancel"
+				},
+				"url": {
+					"raw": "admin/orders/userOrders/order_id",
+					"host": [
+						"admin"
+					],
+					"path": [
+						"orders",
+						"userOrders",
+						"order_id"
+					]
+				},
+				"description": "admin can edit and update orders"
+			},
+			"response": [
+				{
+					"name": "Default",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "approve,cancel"
+						},
+						"url": {
+							"raw": "admin/orders/userOrders/order_id",
+							"host": [
+								"admin"
+							],
+							"path": [
+								"orders",
+								"userOrders",
+								"order_id"
+							]
+						}
+					},
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "successfull"
+				}
+			]
+		},
+		{
+			"name": "admin/salesReport",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "admin/salesReport",
+					"host": [
+						"admin"
+					],
+					"path": [
+						"salesReport"
+					]
+				},
+				"description": "to get sales report"
+			},
+			"response": [
+				{
+					"name": "Default",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "admin/salesReport",
+							"host": [
+								"admin"
+							],
+							"path": [
+								"salesReport"
+							]
+						}
+					},
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "succesfull"
+				}
+			]
+		},
+		{
+			"name": "admin/logOut",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "admin/logOut",
+					"host": [
+						"admin"
+					],
+					"path": [
+						"logOut"
+					]
+				},
+				"description": "admin can logOut from admin panel"
+			},
+			"response": [
+				{
+					"name": "Default",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "admin/logOut",
+							"host": [
+								"admin"
+							],
+							"path": [
+								"logOut"
+							]
+						}
+					},
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "successfull"
+				}
+			]
+		},
+		{
+			"name": "/",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "/",
+					"path": [
+						""
+					]
+				},
+				"description": "homePage"
+			},
+			"response": [
+				{
+					"name": "Default",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "/",
+							"path": [
+								""
+							]
+						}
+					},
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "successfull"
+				}
+			]
+		},
+		{
+			"name": "/signUp",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "/signUp",
+					"path": [
+						"signUp"
+					]
+				},
+				"description": "sign up page"
+			},
+			"response": [
+				{
+					"name": "Default",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "/signUp",
+							"path": [
+								"signUp"
+							]
+						}
+					},
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "succesfull"
+				}
+			]
+		},
+		{
+			"name": "/signUp",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "name,email,password,mobileNo."
+				},
+				"url": {
+					"raw": "/signUp",
+					"path": [
+						"signUp"
+					]
+				},
+				"description": "user registered"
+			},
+			"response": [
+				{
+					"name": "Default",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "name,email,password,mobileNo."
+						},
+						"url": {
+							"raw": "/signUp",
+							"path": [
+								"signUp"
+							]
+						}
+					},
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "succesfull"
+				}
+			]
+		},
+		{
+			"name": "/login",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "/login",
+					"path": [
+						"login"
+					]
+				},
+				"description": "user login page"
+			},
+			"response": [
+				{
+					"name": "Default",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "/login",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "succesfull"
+				}
+			]
+		},
+		{
+			"name": "/login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "email, password"
+				},
+				"url": {
+					"raw": "/login",
+					"path": [
+						"login"
+					]
+				},
+				"description": "user logged in"
+			},
+			"response": [
+				{
+					"name": "Default",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "email, password"
+						},
+						"url": {
+							"raw": "/login",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "succesfull"
+				}
+			]
+		},
+		{
+			"name": "/addCart/ : id",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "/addCart/ : id",
+					"path": [
+						"addCart",
+						" : id"
+					]
+				},
+				"description": "user can add product to cart"
+			},
+			"response": [
+				{
+					"name": "Default",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "/addCart/ : id",
+							"path": [
+								"addCart",
+								" : id"
+							]
+						}
+					},
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "succesfull"
+				}
+			]
+		},
+		{
+			"name": "/removeCart/ : id",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "/removeCart/ : id",
+					"path": [
+						"removeCart",
+						" : id"
+					]
+				},
+				"description": "user can remove product from cart"
+			},
+			"response": [
+				{
+					"name": "Default",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "/removeCart/ : id",
+							"path": [
+								"removeCart",
+								" : id"
+							]
+						}
+					},
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "succesfull"
+				}
+			]
+		},
+		{
+			"name": "/addCoupon/",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "coupon code"
+				},
+				"url": {
+					"raw": "/addCoupon/",
+					"path": [
+						"addCoupon",
+						""
+					]
+				},
+				"description": "user can add coupon"
+			},
+			"response": [
+				{
+					"name": "Default",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "coupon code"
+						},
+						"url": {
+							"raw": "/addCoupon/",
+							"path": [
+								"addCoupon",
+								""
+							]
+						}
+					},
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "succesfull"
+				}
+			]
+		},
+		{
+			"name": "/addWishlist/ : id",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "/addWishlist/ : id",
+					"path": [
+						"addWishlist",
+						" : id"
+					]
+				},
+				"description": "user can add product to wishlist"
+			},
+			"response": [
+				{
+					"name": "Default",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "/addWishlist/ : id",
+							"path": [
+								"addWishlist",
+								" : id"
+							]
+						}
+					},
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "succesfull"
+				}
+			]
+		},
+		{
+			"name": "/removeWishlist/ : id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "/removeWishlist/ : id",
+					"path": [
+						"removeWishlist",
+						" : id"
+					]
+				},
+				"description": "user can remove product from wishlist"
+			},
+			"response": [
+				{
+					"name": "Default",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "/removeWishlist/ : id",
+							"path": [
+								"removeWishlist",
+								" : id"
+							]
+						}
+					},
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "succesfull"
+				}
+			]
+		},
+		{
+			"name": "/viewProducts/",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "/viewProducts/",
+					"path": [
+						"viewProducts",
+						""
+					]
+				},
+				"description": "user can view product details"
+			},
+			"response": [
+				{
+					"name": "Default",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "/viewProducts/",
+							"path": [
+								"viewProducts",
+								""
+							]
+						}
+					},
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "succesfull"
+				}
+			]
+		},
+		{
+			"name": "/addToBag/ : id",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "/addToBag/ : id",
+					"path": [
+						"addToBag",
+						" : id"
+					]
+				},
+				"description": "user can add prorduct to shopping cart"
+			},
+			"response": [
+				{
+					"name": "Default",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "/addToBag/ : id",
+							"path": [
+								"addToBag",
+								" : id"
+							]
+						}
+					},
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "succesfull"
+				}
+			]
+		},
+		{
+			"name": "/checkout",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "/checkout",
+					"path": [
+						"checkout"
+					]
+				},
+				"description": "user needs to fill check out details for orderpage"
+			},
+			"response": [
+				{
+					"name": "Default",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "/checkout",
+							"path": [
+								"checkout"
+							]
+						}
+					},
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "succesfull"
+				}
+			]
+		},
+		{
+			"name": "/checkout",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "first name,last name,country,address,town/city,post code,phone,email,password"
+				},
+				"url": {
+					"raw": "/checkout",
+					"path": [
+						"checkout"
+					]
+				},
+				"description": "user entered the checkout details"
+			},
+			"response": [
+				{
+					"name": "Default",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "first name,last name,country,address,town/city,post code,phone,email,password"
+						},
+						"url": {
+							"raw": "/checkout",
+							"path": [
+								"checkout"
+							]
+						}
+					},
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "succesfull"
+				}
+			]
+		},
+		{
+			"name": "/placeOrder",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "/placeOrder",
+					"path": [
+						"placeOrder"
+					]
+				},
+				"description": "user needs to enter payment details"
+			},
+			"response": [
+				{
+					"name": "Default",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "/placeOrder",
+							"path": [
+								"placeOrder"
+							]
+						}
+					},
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "succesfull"
+				}
+			]
+		},
+		{
+			"name": "/confirmPayment",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "payment option details"
+				},
+				"url": {
+					"raw": "/confirmPayment",
+					"path": [
+						"confirmPayment"
+					]
+				},
+				"description": "confirm payment "
+			},
+			"response": [
+				{
+					"name": "Default",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "payment option details"
+						},
+						"url": {
+							"raw": "/confirmPayment",
+							"path": [
+								"confirmPayment"
+							]
+						}
+					},
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "succesfull"
+				}
+			]
+		},
+		{
+			"name": "/orderStatus",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "/orderStatus",
+					"path": [
+						"orderStatus"
+					]
+				},
+				"description": "user will get the order status"
+			},
+			"response": [
+				{
+					"name": "Default",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "/orderStatus",
+							"path": [
+								"orderStatus"
+							]
+						}
+					},
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "succesfull"
+				}
+			]
+		},
+		{
+			"name": "/userLogout",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "/userLogout",
+					"path": [
+						"userLogout"
+					]
+				},
+				"description": "user can logOut from their account"
+			},
+			"response": [
+				{
+					"name": "Default",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "/userLogout",
+							"path": [
+								"userLogout"
+							]
+						}
+					},
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "succesfull"
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,295 @@
+<%- include('../layouts/userheader.ejs') %>
+    
+<style>
+	.ltext-101 {
+    font-size: 20px;
+}
+
+.ltext-201 {
+    font-size: 24px;
+}
+
+
+</style>
+		
+
+	<!-- Slider -->
+	<section class="section-slide " style="margin-top: 75px;" >
+		<div class="wrap-slick1">
+			<div class="slick1">
+				<% if(banner.length >0){ %>
+					<%  for(let i=0;i<banner.length;i++){ %>
+				<div class="item-slick1" style="background-image: url(product-image/<%=banner[i].images[0]%>);width: 100%;">
+					<div class="container h-full">
+						<div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
+							<div class="layer-slick1 animated visible-false" data-appear="fadeInDown" data-delay="0">
+								<span class="ltext-101 cl2 respon2 text ">
+									<%= banner[i].banner_text_upper %>
+								</span>
+							</div>
+								
+							<div class="layer-slick1 animated visible-false" data-appear="fadeInUp" data-delay="800">
+								<h4 class="ltext-201 cl2 p-t-19 p-b-43 respon1 text-dark">
+									<%= banner[i].header %>
+								</h4>
+							</div>
+							<div class="layer-slick1 animated visible-false" data-appear="fadeInDown" data-delay="0">
+								<span class="ltext-101 cl2 respon2">
+									<%= banner[i].banner_description %>
+								</span>
+							</div>
+							<div class="layer-slick1 animated visible-false" data-appear="fadeInDown" data-delay="0">
+								<span class="ltext-101 cl2 respon2">
+									<%= banner[i].banner_text_down%>
+								</span>
+							</div>
+							
+							
+							<div class="layer-slick1 animated visible-false" data-appear="zoomIn" data-delay="1600">
+								<a href="/shop" class="flex-c-m stext-101 cl0  size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 text-decoration-none ">
+									Shop Now
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<%}}%>
+
+				
+
+				
+			</div>
+		</div>
+	</section>
+
+
+	<!-- Banner -->
+	
+
+
+	<!-- Product -->
+	<section class="bg0 p-t-23 p-b-140">
+		<div class="container">
+			
+
+			
+		
+			<div class="row">
+				<div class="col-md-6  py-2 mb-3 text-center">
+					<div class="border-start border-width-3 p-3 p-lg-4">
+					<img src="./assets/img/fossil/small-banner.avif" width="100%" alt="">
+				</div>
+			</div>
+				<div class="col-md-6  py-2 mb-3 text-center">
+					<div class="h-100 d-flex justify-content-center flex-column">
+					<div class="border-start border-width-3 p-3 p-lg-4">
+						<h1>The Harwell Watch</h1>
+						<small>Equestrian Inspired. Perfect for today.</small>
+					<div class="layer-slick1 animated " data-appear="zoomIn" data-delay="1600">
+						<a href="/watch" class="btn btn-secondary bg2 bor1 hov-btn1 p-lr-15 stext-101 mt-3 trans-04" style="width: 30%;">Shop Now</a>
+					</div>
+				</div>
+				</div>
+			</div>
+			</div>
+	
+			<div >
+			<div class="item-slick1" style="background-image: url(assets/img/fossil/sub-banner.avif)">
+				<div class="row h-100">
+					<div class="col-md-6 offset-md-6">
+						<div class="d-flex flex-column justify-content-center align-items-center h-100 w-100 text-center">
+							<div class="d-none d-md-block">
+								<h3 class="text-header">Simply Sadie</h3>
+								<p>
+									Our most classic jewelry collections,
+									<br class="d-none d-md-block">	
+									refreshed with impeccable details.
+								</p>
+								<a href="/shop" class="btn btn-secondary rounded-pill">shop now</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>	
+			<div class="row  d-flex">
+				<div class="col-md-6  py-2 mb-3 text-center ">
+					<div class=" p-3 p-lg-4 h-100 w-100">
+						<img src="./assets/img/fossil/0215_Spring_IC_Mens_Watches.avif" alt="" height="100%" width="100%">
+					</div>
+				</div>
+				<div class="col-md-6  py-2 mb-3 text-center">
+					<div class=" p-3 p-lg-4 h-100 w-100">
+						<img src="./assets/img/fossil/sub-banner1.avif" alt="" height="100%" width="100%">
+					</div>
+				</div>
+			</div>
+			
+			<div class="seo-content-slot container-fluid">
+				<div class="mb-9">
+					<div class="border-top mb-1">
+						<h2>FOSSIL WATCHES, LEATHER HANDBAGS & ACCESSORIES ARE PERFECT FOR ANY OCCASION</h2>
+						<p>Fossil is an American watch and lifestyle company, creatively rooted in authentic vintage and classic design. We strive to create high-quality watches, bags, jewelry and more that preserve the best of the past while updating it for today. When the clean lines of the mid-century meet the modern looks of today, the result is key items that represent the best of what we stand for: bags that pair portability with streamlined design, traditional watches created in fresh hues and materials, and timeless clothes and accessories that accompany you wherever you are traveling.</p>
+					</div>
+				</div>
+			</div>
+                            
+			<!-- Load more -->
+			
+		</div>
+	</section>
+
+
+	<!-- Footer -->
+	<footer class="bg3 p-t-75 p-b-32">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-6 col-lg-3 p-b-50">
+					<h4 class="stext-301 cl0 p-b-30">
+						Categories
+					</h4>
+
+					<ul>
+						<li class="p-b-10">
+							<a href="/women" class="stext-107 cl7 hov-cl1 trans-04">
+								Women
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="/men" class="stext-107 cl7 hov-cl1 trans-04">
+								Men
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+								Shoes
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+								Watches
+							</a>
+						</li>
+					</ul>
+				</div>
+
+				<div class="col-sm-6 col-lg-3 p-b-50">
+					<h4 class="stext-301 cl0 p-b-30">
+						Help
+					</h4>
+
+					<ul>
+						<li class="p-b-10">
+							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+								Track Order
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+								Returns 
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+								Shipping
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+								FAQs
+							</a>
+						</li>
+					</ul>
+				</div>
+
+				<div class="col-sm-6 col-lg-3 p-b-50">
+					<h4 class="stext-301 cl0 p-b-30">
+						GET IN TOUCH
+					</h4>
+
+					<p class="stext-107 cl7 size-201">
+						Any questions? Let us know in store at 8th floor, 379 Hudson St, New York, NY 10018 or call us on (+1) 96 716 6879
+					</p>
+
+					<div class="p-t-27">
+						<a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+							<i class="fa fa-facebook"></i>
+						</a>
+
+						<a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+							<i class="fa fa-instagram"></i>
+						</a>
+
+						<a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+							<i class="fa fa-pinterest-p"></i>
+						</a>
+					</div>
+				</div>
+
+				<div class="col-sm-6 col-lg-3 p-b-50">
+					<h4 class="stext-301 cl0 p-b-30">
+						Newsletter
+					</h4>
+
+					<form>
+						<div class="wrap-input1 w-full p-b-4">
+							<input class="input1 bg-none plh1 stext-107 cl7" type="text" name="email" placeholder="email@example.com">
+							<div class="focus-input1 trans-04"></div>
+						</div>
+
+						<div class="p-t-18">
+							<button class="flex-c-m stext-101 cl0 size-103 bg1 bor1 hov-btn2 p-lr-15 trans-04">
+								Subscribe
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+
+			<div class="p-t-40">
+				<div class="flex-c-m flex-w p-b-18">
+					<a href="#" class="m-all-1">
+						<img src="./assets/img/icons/icon-pay-01.png" alt="ICON-PAY">
+					</a>
+
+					<a href="#" class="m-all-1">
+						<img src="./assets/img/icons/icon-pay-02.png" alt="ICON-PAY">
+					</a>
+
+					<a href="#" class="m-all-1">
+						<img src="./assets/img/icons/icon-pay-03.png" alt="ICON-PAY">
+					</a>
+
+					<a href="#" class="m-all-1">
+						<img src="./assets/img/icons/icon-pay-04.png" alt="ICON-PAY">
+					</a>
+
+					<a href="#" class="m-all-1">
+						<img src="./assets/img/icons/icon-pay-05.png" alt="ICON-PAY">
+					</a>
+				</div>
+
+				<p class="stext-107 cl6 txt-center">
+					<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> &amp; distributed by <a href="https://themewagon.com" target="_blank">ThemeWagon</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+
+				</p>
+			</div>
+		</div>
+	</footer>
+
+
+	<div class="btn-back-to-top" id="myBtn">
+		<span class="symbol-btn-back-to-top">
+			<i class="zmdi zmdi-chevron-up"></i>
+		</span>
+	</div>
+
+   
+	<%- include('../layouts/userfooter.ejs') %>

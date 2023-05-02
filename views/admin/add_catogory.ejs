@@ -1,0 +1,55 @@
+<%- include('../layouts/header.ejs') %>
+
+            <!-- PAGE INNER
+            ================================================== -->
+            <div class="page-inner">
+
+                
+                <div id="main-wrapper">
+
+                    <!-- row -->
+                    
+                    <!-- end row -->
+
+                    <!-- row -->
+                    <div class="row">
+                        <div class="col-md-12 grid-margin">
+                            <div class="card card-white">
+                                <div class="card-heading clearfix">
+                                    <h4 class="card-title">Add new category </h4>
+                                </div>
+                                
+                                <div class="card-body">
+                                    <form action="/admin/add_catogory" method="post">                    
+                                            <label for="exampleInput1">Category Name</label>
+                                            <input type="text" class="form-control"  aria-describedby="exampleInput1" name="name" placeholder="New category" id="name" onkeyup="validateName()"/>
+                                            <span id="category-error"></span>
+                                        </div>
+                                        
+                                       
+                                        <div class="mt-3">
+                                            <button  onclick="return validateForm()" type="submit" class="btn btn-primary">Submit</button>
+                                            <span id="submit"></span>
+                                                
+                                              
+                                              
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            
+            <% if (message != null) { %>
+                <script>
+                      swal({
+                        title: "error!",
+                        text: " <%= message %> ",
+                        icon: "warning",
+                        timer:3000,
+                        showConfirmButton: false
+                      })
+              </script>
+              <% } %>
+    <%- include('../layouts/footer.ejs') %>

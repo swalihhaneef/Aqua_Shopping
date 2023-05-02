@@ -1,0 +1,64 @@
+<%- include('../layouts/header.ejs') %>
+
+<div class="page-inner">
+
+    <!-- PAGE MAIN WRAPPER
+    ================================================== -->
+    <div id="main-wrapper">
+        <!-- row -->
+        <div class="row">
+            <div class="col-md-12 grid-margin">
+                <div class="card card-white">
+                    <div class="card-heading clearfix">
+                        <h4 class="card-title">Add coupon</h4>
+                    </div>
+                    <div class="card-body">
+                        <form action="/admin/addCoupons" method="post">
+                           
+                            <div class="form-group">
+                                <label for="exampleInput2">Coupan Code</label>
+                                <input type="text" class="form-control" id="couponName" onkeyup="couponName()" name="couponCode">
+                                <span id="couponNameError"></span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Expiriy Date</label>
+                                <input type="date" class="form-control date-picker" id="expiryDate" onkeyup="expiryDate()"  name="expiryDate">
+                                <span id="couponexpDateError"></span>
+                            </div>
+                            
+                            
+                            <div class="form-group">
+                                <label for="exampleInput5">Minimum Spend</label>
+                                <input type="number" class="form-control" id="minAmount" onkeyup="minAmount()" name="minAmount">
+                                <span id="couponMinspendError"></span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="exampleInput5">Minimum discount</label>
+                                <input type="number" class="form-control" id="minDiscount" onkeyup="minDiscount()" name="minDiscount">
+                                <span id="couponMindisError"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInput6">Maximum discount</label>
+                                <input type="number" class="form-control" id="maxDiscount" onkeyup="maxDiscount()" name="maxDiscount">
+                                <span id="couponMaxdisError"></span>
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                <button type="submit"  onclick="coupounSumit()" class="btn btn-primary mb-2 ">submit</button>
+                              <span id="bannersubmitError"></span>
+                              </div>
+                           
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end row -->
+
+        <!-- row -->
+        
+        <!-- end row -->
+    </div>
+</div>
+<%- include('../layouts/footer.ejs') %>

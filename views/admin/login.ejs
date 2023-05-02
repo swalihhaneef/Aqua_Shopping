@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- metas -->
+    <meta charset="utf-8">
+    <meta name="author" content="Chitrakoot Web" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="keywords" content="Multipurpose eCommerce Template + Admin" />
+    <meta name="description" content="Smartshop - Multipurpose eCommerce Template + Admin" />
+
+    <!-- title  -->
+    <title>Admin</title>
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="img/logos/favicon.png">
+    <link rel="apple-touch-icon" href="img/logos/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/logos/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/logos/apple-touch-icon-114x114.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+    <!-- plugins -->
+    <link rel="stylesheet" href="./admin/css1/plugins.css">
+
+    <!-- theme core css -->
+    <link href="./admin/css1/styles.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    
+        <section class="md" >
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-6 mb-1-9 mb-lg-0">
+
+                        <div class="common-block">
+
+                            <div class="inner-title">
+                                <h4 class="mb-0">Login</h4>
+                                <p class="mb-0">Everything is simple with Login.</p>
+                            </div>
+
+                            <form method="post" action="/admin/login">
+
+                                <div class="row">
+
+                                    <div class="col-sm-12">
+
+                                        <div class="form-group">
+                                            <label>User Name</label>
+                                            <input type="email" class="form-control" name="email" placeholder="Your user name here">
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-sm-12">
+
+                                        <div class="form-group">
+                                            <label>Password</label>
+                                            <div class="input-group">
+                                              <input type="password" class="form-control" name="password" placeholder="Your password here" id="password-field">
+                                              <button type="button" class="btn btn-default" id="toggle-password"> <i class="fa-solid fa-eye"></i> </button>
+                                            </div>
+                                          </div>
+                                          
+
+                                    </div>
+
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                      
+                                    </div>
+                                    <div class="col-sm-6 text-start text-md-end">
+                                        <a href="account-password-recovery.html" class="m-link-muted">Forgot password?</a>
+                                    </div>
+
+                                </div>
+
+                                <button type="submit" class="butn-style2 mt-4 btn btn-primary">Login</button>
+
+                            </form>
+
+                        </div>
+
+                    </div>
+
+                    
+
+                </div>
+            </div>
+        </section>
+        
+        <!-- FOOTER
+        ================================================== -->
+        
+ 
+    
+    
+    
+
+    <script>
+  const togglePassword = document.querySelector('#toggle-password');
+  const passwordField = document.querySelector('#password-field');
+
+  togglePassword.addEventListener('click', function() {
+    const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+    passwordField.setAttribute('type', type);
+    this.querySelector('i').classList.toggle('fa-eye');
+    this.querySelector('i').classList.toggle('fa-eye-slash');
+  });
+</script>
+
+
+    <!-- jQuery -->
+    <script src="js/jquery.min.js"></script>
+
+    <!-- popper js -->
+    <script src="js/popper.min.js"></script>
+
+    <!-- bootstrap -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- core.min.js -->
+    <script src="js/core.min.js"></script>
+
+    <!-- custom scripts -->
+    <script src="js/main.js"></script>
+	
+	<!-- all js include end -->
+
+</body>
+
+</html>

@@ -1,0 +1,143 @@
+<%- include('../layouts/header.ejs') %>
+
+            <!-- PAGE INNER
+            ================================================== -->
+            <div class="page-inner">
+
+                <!-- PAGE MAIN WRAPPER
+                ================================================== -->
+                <div id="main-wrapper">
+                    <!-- row -->
+                    <div class="row g-xl-3">
+                        <div class="col-xl-8 grid-margin">
+                            <div class="card card-white mb-3">
+                                <div class="card-heading clearfix">
+                                    <h4 class="card-title">Product information</h4>
+                                </div>
+                                <div class="card-body">
+
+                                    <form class="needs-validation" action="/admin/add_products" method="post" enctype="multipart/form-data">
+                                        <div class="row">
+                                            <div class="col-md-12 mb-3">
+                                                <label for="validationCustom01">Name</label>
+                                                <input type="text" class="form-control" name="name" placeholder="Enter the name" id="pname" onkeyup="validatepName()">
+                                                <span id="nameError"></span><br>
+                                            </div>
+
+                                            <div class="col-md-6 mb-3">
+                                                <label for="validationCustom02">price</label>
+                                                <input type="number" class="form-control"  name="price" placeholder="Enter the price" id="pprice" onkeyup="validatepprice()">
+                                                <span id="priceError"></span><br>
+                                            </div>
+                                            
+                                            <div class="col-md-6 mb-3">
+                                                <label for="validationCustom04">Material</label>
+                                                <input type="text" class="form-control"name="material" placeholder="Enter the material" id="pmaterial" onkeyup="validatepmaterial()">
+                                                <span id="materialError"></span><br>
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="validationCustom05">Quantity</label>
+                                                <input type="text" class="form-control" name="stock" placeholder="Enter the quantity" id="pqty" onkeyup="validatepqty()">
+                                                <span id="quantityError"></span><br>
+                                            </div>
+                                            <div class="col-md-12 mb-3">
+                                              <label for="validationCustom01">discription</label>
+                                              <input type="text" class="form-control"name="discription" id="pdiscription" onkeyup="validatepdiscrptn()" placeholder="Write the description of the product">
+                                              <span id="discriptonError"></span><br>
+                                          </div>
+                                            
+                                        </div>
+                                        <div class="card card-white mb-3">
+                                          <div class="card-heading clearfix">
+                                              <h4 class="card-title">Media</h4>
+                                          </div>
+                                          <div class="card-body">
+                                              <div class="row">
+                                                  <div class="col-md-12">
+                                                      <div>
+                                                          <input class="form-control form-control-lg" type="file" name="image" id="image-upload" onkeyup="validatepimage()" placeholder="Upload the image of the product" multiple>
+                                                          <span id="imageError"></span><br>
+                                                      </div>
+                                                  </div>
+                                              </div>
+          
+                                          </div>
+                                      </div>
+                                      <div class="card card-white">
+                                        <div class="card-heading clearfix">
+                                            <h4 class="card-title">Variants</h4>
+                                            <label for="gender">gender</label>
+                                            <select name="gender"  class="form-select form-control" id="">
+                                              <option value="male">male</option>
+                                              <option value="female">female</option>
+                                              
+                                            </select>
+                                        </div>
+                                        <br>
+                                        <div class="card-body">
+        
+                                            
+                                                <label for="validationCustom06">categories</label>
+                                                <select name="category" class="form-select form-control"id="pcategory" onkeyup="validatepcatgry()" aria-label="Default select example">
+                                                  <% if (category.length > 0) { %>
+                                                    <% for (let i = 0; i < category.length; i++) { %>
+                                                      <option value="<%= category[i].name %>"><%= category[i].name %></option>
+                                                    <% } %>
+                                                  <% } %>
+                                                </select>
+                                                <span id="categoryError"></span>
+                                                <br><br>
+                                              <button type="submit" onclick="return validatepform()" class="btn btn-primary mb-2">update</button>
+                                              <span id="psubmit"></span>
+                                        </div>
+                                    </div>
+                                    </form>
+
+                                </div>
+                            </div>
+                           
+                            
+                        </div>
+                        
+                    </div>
+                    <!-- end row -->
+                </div>
+
+            </div>
+
+          <script>
+            const fileInput = document.getElementById("image-upload");
+fileInput.addEventListener("change", validateImage);
+
+function validateImage() {
+  const file = fileInput.files[0];
+  const imageType = /image.*/; // regular expression to match image file types
+
+  // Check if file is an image
+  if (!file.type.match(imageType)) {
+    document.getElementById("imageError").textContent = "Please upload an image file";
+    fileInput.value = ""; // reset file input
+    return;
+  }
+
+  const reader = new FileReader();
+  reader.onload = function() {
+    const image = new Image();
+    image.src = reader.result;
+    image.onload = function() {
+      // Check if image is in correct dimensions
+      if (image.width > 3000 || image.height > 3000) {
+        document.getElementById("imageError").textContent = "Image dimensions must be less than or equal to 1024px";
+        fileInput.value = ""; // reset file input
+        return;
+      } else {
+        document.getElementById("imageError").textContent = ""; // clear error message
+      }
+    };
+  };
+  reader.readAsDataURL(file);
+}
+
+        </script> 
+
+    <%- include('../layouts/footer.ejs') %>

@@ -1,0 +1,320 @@
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+
+
+
+
+  .card-coupon {
+    width: 400px;
+    margin-top: 10px;
+    height: 180px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2);
+    background-color: #eeecec;
+    padding: 10px 14px;
+    position: relative;
+  }
+
+  .main,
+  .copy-button {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+    align-items: center;
+  }
+
+  .card-coupon::after {
+    position: absolute;
+    content: "";
+    height: 40px;
+    right: -20px;
+    border-radius: 40px;
+    z-index: 1;
+    top: 70px;
+    background-color: #fcfafa;
+    width: 40px;
+  }
+
+  .card-coupon::before {
+    position: absolute;
+    content: "";
+    height: 40px;
+    left: -20px;
+    border-radius: 40px;
+    z-index: 1;
+    top: 70px;
+    background-color: #f7f4f4;
+    width: 40px;
+  }
+
+  .co-img img {
+    width: 100px;
+    height: 100px;
+  }
+
+
+  .content h1 {
+    font-size: 35px;
+    margin-left: -20px;
+    color: #565656;
+  }
+
+  .content h1 span {
+    font-size: 18px;
+  }
+
+  .content h2 {
+    font-size: 18px;
+    margin-left: -20px;
+    color: #565656;
+    text-transform: uppercase;
+  }
+
+  .content p {
+    font-size: 16px;
+    color: #696969;
+    margin-left: -20px;
+  }
+
+  .copy-button {
+    margin: 12px 0 -5px 0;
+    height: 45px;
+    border-radius: 4px;
+    padding: 0 5px;
+    border: 1px solid #e1e1e1;
+  }
+
+  .copy-button input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    font-size: 15px;
+  }
+
+  .copy-button button {
+    padding: 5px 20px;
+    background-color: #dc143c;
+    color: #fff;
+    border: 1px solid transparent;
+  }
+
+  .buy {
+    position: absolute;
+    content: "";
+    bottom: 20px;
+    left: 20px;
+    background-color: #dc143c;
+  }
+</style>
+
+<%- include('../layouts/userheader.ejs') %>
+
+  <div class="container">
+    <div class=" text-center bg0 p-t-75">
+
+      <h2>Checkout </h2>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4 order-md-2 mb-4">
+        <% if(cart.item.length>0){%>
+          <% for( let i=0; i <cart.item.length; i++ ) { %>
+
+            <ul class="list-group ">
+              <li class="list-group-item d-flex justify-content-between ">
+                <div>
+                  <small class="my-0" style="display: inline-block; max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: normal;">
+                    <%=cart.item[i].product.name%>
+                  </small>
+
+                </div>
+                <span>
+                  <%=cart.item[i].quantity%>
+                </span>
+                <span >₹ <%=cart.item[i].total%></span>
+              </li>
+
+              <% } %>
+                <li class="list-group-item d-flex justify-content-between">
+                  <span>Total</span>
+                  <h6 class="fw-bold grand"> ₹ <%=cart.grandTotalPrice%>
+                  </h6>
+                </li>
+            </ul>
+            <% } %>
+              <button type="button" class="btn btn-primary mt-3" data-toggle="modal" data-target="#exampleModalLong">
+                view coupon
+              </button>
+              <!-- Modal -->
+              <div class="modal fade " id="exampleModalLong" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalLongTitle" aria-hidden="true" style="margin-top: 75px;">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header ">
+
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <% if(coupons.length>0){ %>
+                      <% for(let i=0;i<coupons.length;i++){ %>
+                        <div class="modal-body bg-light">
+                          <div class="container " id="coupon-container">
+
+                            <div class="card-coupon">
+                              <div class="main">
+                                
+                                <div class="vertical"></div>
+                                <div class="content">
+                                  <h4>
+                                    <%= coupons[i].couponId %>
+                                  </h4>
+                                  <h6>
+                                    <%= coupons[i].discount %>% - ₹<%= coupons[i].max_discount %><span>on minimum purchase of ₹<%=coupons[i].minAmount %> </span>
+                                  </h6>
+                                  <p class="text-dark">Valid till <%= coupons[i].expiryDate %>
+                                  </p>
+                                </div>
+                              </div>
+                              <div class="copy-button">
+                                <input id="copyvalue" type="text mt-3" readonly value="<%= coupons[i].couponId %>" />
+                                <button onclick="copyIt()" class="copybtn">COPY</button>
+                              </div>
+                            </div>
+
+                          </div>
+
+                        </div>
+
+                        <%} %>
+                          <%} %>
+
+                  </div>
+                </div>
+              </div>
+              <form>
+                <div class="input-group mt-3">
+                  <input id="search12" type="text" class="form-control"  name="code"
+                    placeholder="Promo code">
+                  
+                  <div class="input-group-append">
+                    <button type="button" class="btn btn-secondary" onclick="coupon()">Redeem</button>
+                  </div>
+                </div>
+              </form>
+              
+      </div>
+      
+        <div class="col-md-8 order-md-1">
+          <h4 class="mb-3">Billing address</h4>
+          <div>
+            <p>do you want add new address ?</p><a href="/addNewAddressCheckout">add new address</a>
+          </div>
+          <br><br>
+          <form method="post" class="" action="/payment" novalidate>
+            <% if(user.address.length>0){ %>
+            <% for(let i=0 ; i < user.address.length ; i ++){ %>
+  
+              <div class="card text-center">
+               
+                <div class="card-body ">
+                  <input type="radio" value="<%= i %>" id="<%=i%>option1" name="index">
+                  <p> Use this details ?</p>
+                  <h5 class="card-title"> <%= user.address[i].first_name %>, <%= user.address[i].last_name %></h5>
+                  <p class="card-text"> <%= user.address[i].house %>,<%= user.address[i].land_mark %>, <%= user.address[i].town %>,<%= user.address[i].state %>, <%= user.address[i].pin_code %>
+                  </p>
+                  <p><%= user.address[i].phone %></p>
+                  <a class="btn btn-secondary" href="/edit_addressCheckout?id=<%=user.address[i]._id%>&index=<%= i %>">edit</a>
+                  <a class="btn btn-danger" href="/delete_addressCheckout?id=<%=user.address[i]._id%>&index=<%= i %>">delete</a>
+                </div>
+                
+              </div>
+             
+              <% } %>
+              <% } else { %>
+                <div class=" text-center">
+                    <h5>You should add address</h5>
+                    
+                </div>
+                
+            <% } %>
+              
+                  <% if (typeof message !=='undefined' ) { %>
+                    <span class="text-danger text-center">
+                      <%= message %>
+                      
+                    </span>
+                    <% } %>
+              
+              
+              <hr class="mb-4">
+                    <button class="btn btn-success btn-lg btn-block mb-3" type="submit">Make Payment</button>
+                    <br>
+          </form>
+        </div>  
+      </div> 
+  </div>
+
+  
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"> </script>
+  <script>
+    $(document).ready(function () {
+      $('#0option1').click()
+    })
+  </script>
+  <script>
+    console.log($('#search12').val());
+    function coupon() {
+      let search = $('#search12').val()
+      $.ajax({
+        type: "post",
+        url: '/redeem',
+        dataType: 'json',
+        contentType: 'application/json',
+        data: JSON.stringify({ search }),
+        success: ((res) => {
+          if (res.success) {
+            $('.grand').text(res.grand)
+            $('#search12').val('')
+          } if (res.error) {
+            swal('oops','You already used this coupon',"error")
+          }
+        }),
+      })
+    }
+  </script>
+  <script>
+
+    let copybtn = document.querySelector(".copybtn");
+
+
+    function copyIt() {
+      let copyInput = document.querySelector('#copyvalue');
+
+      copyInput.select();
+
+      document.execCommand("copy");
+
+      copybtn.textContent = "COPIED";
+    }
+
+  </script>
+  <script>
+    const showFormButton = document.getElementById('show-form');
+  const myForm = document.getElementById('my-form');
+  
+  showFormButton.addEventListener('click', function() {
+    myForm.style.display = 'block';
+  });
+  
+  </script>
+  <%- include('../layouts/userfooter.ejs') %>
+  

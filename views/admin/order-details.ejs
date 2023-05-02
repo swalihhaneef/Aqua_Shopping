@@ -1,0 +1,192 @@
+<%- include('../layouts/header.ejs') %>
+           
+
+            <!-- PAGE INNER
+            ================================================== -->
+            <div class="page-inner">
+
+                <!-- PAGE MAIN WRAPPER
+                ================================================== -->
+                <div id="main-wrapper">
+                    <!-- row -->
+                    <div class="row g-xl-3">
+                       
+                        <div class="col-xl-8 grid-margin">
+                            <div class="card card-white h-100">
+                                <div class="card-heading clearfix">
+                                    <h4 class="card-title">Addresses</h4>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-lg-auto me-xl-5 pe-xl-5 mb-4 mb-xl-0">
+                                            <h6 class="text-uppercase fw-bold mb-3">billing</h6>
+                                            <ul class="list-unstyled ps-0">
+                                                <li><%=orderData.address.first_name%> <%=orderData.address.last_name%></li>
+                                                <li><%=orderData.address.house%></li>
+                                                <li><%= orderData.address.town %></li>
+                                                <li><%=orderData.address.state%></li>
+                                                <li><%=orderData.address.land_mark%></li>
+                                                <li><%=orderData.address.pin_code%></li>
+                                            </ul>
+                                            <strong class="d-block">Email address:</strong>
+                                            <a href="#"><%=orderData.address.email  %></a>
+                                            <strong class="d-block mt-3">Phone:</strong>
+                                            <a href="#"><%=orderData.address.phone%></a>
+                                        </div>
+                                        <div class="col-lg-auto ps-xl-5">
+                                            <h6 class="fw-bold text-uppercase mb-3">shipping</h6>
+                                            <ul class="list-unstyled ps-0">
+                                              <li><%=orderData.address.first_name%> <%=orderData.address.last_name%></li>
+                                              <li><%=orderData.address.house%></li>
+                                              <li><%= orderData.address.town %></li>
+                                              <li><%=orderData.address.state%></li>
+                                              <li><%=orderData.address.land_mark%></li>
+                                              <li><%=orderData.address.pin_code%></li>
+                                          </ul>
+                                          <strong class="d-block">Email address:</strong>
+                                          <a href="#"><%=orderData.address.email  %></a>
+                                          <strong class="d-block mt-3">Phone:</strong>
+                                          <a href="#"><%=orderData.address.phone%></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end row -->
+
+                    <!-- row -->
+                    <div class="row g-xl-3">
+                        <div class="col-lg-12 grid-margin">
+                            <div class="card card-white h-100">
+                                <div class="card-heading clearfix">
+                                    <h4 class="card-title">Products</h4>
+                                </div>
+                                <% for( let i = 0; i < orderData.order.length; i++ ) { %>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table mb-0 order-details-table">
+                                            <thead class="bg-light">
+                                                <tr>
+                                                    <th class="ps-4 id">ID</th>
+                                                    <th class="name">Name</th>
+                                                    <th class="text-end cost">Cost</th>
+                                                    <th class="text-end qty">Qty</th>
+                                                    <th class="text-end total">Total</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                             
+                                                <tr>
+                                                    <td class="ps-4"><a href="#"><strong> <%=orderData._id %></strong></a></td>
+                                                    <td><%=orderData.order[i].product.name%></td>
+                                                    <td class="text-end">₹<%=orderData.order[i].product.price  %></td>
+                                                    <td class="text-end"><%=orderData.order[i].quantity %></td>
+                                                    
+                                                    <td class="text-end">₹<%= orderData.grandTotal %></td>
+
+                                                </tr>
+                                               
+                                               
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="row justify-content-end flex-column flex-lg-row mt-5">
+                                        <div class="col-auto me-5">
+                                            <h6 class="fw-bold mb-2">Items Subtotal</h6>
+                                            <span class="d-flex align-items-center">
+                                                <%= i+1 %> Items
+                                                <i class="fas fa-chevron-right f-s-11 text-primary px-3"></i>
+                                                <b>₹ <%= orderData.grandTotal %></b>
+                                            </span>
+                                        </div>
+                                        
+                                        
+                                    </div>
+                                </div>
+                                <% } %>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end row -->
+
+                    <!-- row -->
+                    <div class="row g-xl-3">
+                        <div class="col-xl-4 grid-margin">
+                            <div class="card card-white h-100">
+                                <div class="card-heading clearfix">
+                                    <h4 class="card-title">Shipping Information</h4>
+                                </div>
+                                <div class="card-body">
+                                    <table class="table table-borderless mb-0">
+                                        <tbody>
+                                            <tr>
+                                                <th colspan="2">
+                                                    <p class="m-0"><%=orderData.address.first_name%> <%=orderData.address.last_name%></p>
+                                                </th>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row"><b>Address</b>:</th>
+                                                <td> <%=orderData.address.house%>,<%= orderData.address.town %>,<%=orderData.address.state%>,<%=orderData.address.land_mark%>,<%=orderData.address.pin_code%>
+                                                </td>
+                                            </tr>
+                                            
+                                            <tr>
+                                                <th scope="row"><b>Mobile</b> :</th>
+                                                <td><%=orderData.address.phone%></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-6 col-xl-4 grid-margin">
+                            <div class="card card-white h-100">
+                                
+                                <div class="card-body">
+                                    <div class="text-center">
+                                       
+                                        <% if(orderData.order[0].status == 'pending'){%>
+                                        <div class="my-2">
+                                            
+                                            <button type="button" class="btn btn-primary btn-sm btn-rounded">
+                                                <a class="text-dark text-decoration-none" href="/admin/approve_order?id=<%=orderData._id %>"> Approve</a>
+                                                 
+                                              </button>
+                                        </div>
+                                        
+                                        <div class="mt-2 pt-1">
+                                            <button type="button" class="btn btn-primary btn-sm btn-rounded">
+                                                <a class="text-dark text-decoration-none" href="/admin/cancel_order?id=<%=orderData._id %>"> Cancel</a>
+                                                 
+                                              </button>
+                                        </div>
+                                        <% }else if(orderData.order[0].status == 'approved'){ %>
+                                            <div><b><%= orderData.order[0].status %></b></div>
+                                            <% }else if(orderData.order[0].status == 'cancelled'){ %>
+                                                <div><b><%= orderData.order[0].status %></b></div>   
+                                                <% }else if(orderData.order[0].status == 'refund approved'){ %>
+                                                    <div><b><%= orderData.order[0].status %></b></div>   
+                                                    <% }else if(orderData.order[0].status == 'return approved'){ %>
+                                                        <div><b><%= orderData.order[0].status %></b></div>   
+                                                        <% }else {%>
+                                                            <div class="mt-2 pt-1">
+                                                                <button type="button" class="btn btn-primary btn-sm btn-rounded">
+                                                                    <a class="text-dark text-decoration-none" href="/admin/approve_return?id=<%=orderData._id %>"> approve return</a>
+                                                                    
+                                                                </button>
+                                                            </div>
+                                                            <%  } %>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end row -->
+
+                </div>
+
+            </div>
+ <%- include('../layouts/footer.ejs') %>

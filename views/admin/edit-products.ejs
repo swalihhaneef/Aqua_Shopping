@@ -1,0 +1,122 @@
+
+<%- include('../layouts/header.ejs') %>
+<!-- PAGE INNER
+            ================================================== -->
+            <div class="page-inner">
+
+                <!-- PAGE MAIN WRAPPER
+                ================================================== -->
+                <div id="main-wrapper">
+                    <!-- row -->
+                    <div class="row g-3">
+                        <div class="col-xl-8 grid-margin">
+                          <form class="needs-validation" action="/admin/update_products?id=<%= product._id %>" method="post" enctype="multipart/form-data">
+                            <div class="card card-white mb-3">
+                                <div class="card-heading clearfix">
+                                    <h4 class="card-title">Product information</h4>
+                                </div>
+                                <div class="card-body">
+
+                                        <div class="row">
+                                            <div class="col-md-12 mb-3">
+                                                <label for="validationCustom01">Name</label>
+                                                <input type="text" class="form-control"  name="name" value="<%= product.name  %>"  id="editproductname" onkeyup="editproductname()" required>
+                                                <div id="editproductnameError">
+                                                   
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="validationCustom02">price</label>
+                                                <input type="number" class="form-control" name="price" value="<%= product.price %>" id="editproductprice" onkeyup="editproductprice()" required>
+                                                <div id="editproductpriceError">
+                                                   
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="validationCustom03">quantity</label>
+                                                <input type="number" class="form-control"  name="stock" value="<%= product.stock %>" id="editproductqty" onkeyup="editproductqty()" required>
+                                                <div id="editproductqtyError">
+                                                    
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="validationCustom04">material</label>
+                                                <input type="text" class="form-control"name="material" value="<%= product.material %>" id="editproductmaterial" onkeyup="editproductmaterial()" required>
+                                                <div id="editproductmaterialError">
+                                                   
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="validationCustom05">discription</label>
+                                                <input type="text" class="form-control"  name="discription" value="<%= product.discription %>" id="editproductdiscrption" onkeyup="editproductdiscrption()" required>
+                                                <div id="editproductdiscriptionError">
+                                                    
+                                                </div>
+                                            </div>
+                                            <div class="card-body">        
+                                              <label for="validationCustom06">categories</label>
+                                              <select value="<%= product.category.name %>" name="category" class="form-select form-control" id="editproductcategory" onkeyup="editproductcategory()" aria-label="Default select example">
+                                                <% if (category.length > 0) { %>
+                                                  <% for (let i = 0; i < category.length; i++) { %>
+
+                                                    <option ><%= category[i].name %></option>
+                                                  <% } %>
+                                                <% } %>
+                                              </select>
+                                              <span id="categoryError"></span> 
+                                            </div>
+                                            <input type="file" class="form-control-file" name="image" placeholder="Upload the image of the product" multiple>
+
+                                        </div>
+                                </div>
+                            </div>
+                            <div class="card card-white mb-3">
+                                <div class="card-heading clearfix">
+                                    <h4 class="card-title">Media</h4>
+                                </div>
+                                <div class="card-body">
+                                 
+                                    <div class="row grid-margin gallery">
+                                      <% product.image.forEach((element,i) => {%>
+                                        <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0">
+                                            <div class="card">
+                                                <img src="product-image/<%= element %>"class="card-img-top" alt="...">
+                                                <div class="card-body row text-center">
+                                                    <div class="col border-end">
+                                                        <a href="product-image/<%= element %>"  class="popimg" data-bs-toggle="tooltip" data-bs-placement="top" title="View">
+                                                            <i class="far fa-eye text-primary"></i>
+                                                        </a>
+                                                    </div>
+                                                    <div class="col">
+                                                        
+                                                        <a href="/admin/delete_image?id=<%=i %>&productID=<%= product._id %>" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete">
+                                                            <i class="far fa-trash-alt text-danger"></i>
+                                                        </a>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <%  })%> 
+                                        
+                                        
+                                       
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <span id="psubmit"></span>
+                                    <button type="submit" onclick="return validatepeditform()" class="btn btn-primary mb-2">update</button>
+                                </div>
+                            </div>
+                          </form>
+                        </div>
+                        
+                    </div>
+                    <!-- end row -->
+                </div>
+<%- include('../layouts/footer.ejs') %>

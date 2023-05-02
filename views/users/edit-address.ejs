@@ -1,0 +1,76 @@
+<%- include('../layouts/header.ejs') %>
+
+<div class="container">
+   
+        
+      </div>
+      <div class="col-md-8 order-md-1">
+        <h4 class="mb-3">Edit address</h4>
+        <% if(users.address.length > 0) { %>
+            <% for(let i = 0; i < users.address.length; i++) { %>
+        <form class="needs-validation" method="post" action="/updateAddress" novalidate>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="firstName">First name</label>
+              <input type="text" class="form-control" name="firstName" id="EfirstName" onkeyup="EfirstName()" placeholder="First name" value="<%=users.address[i].first_name%>" required>
+              <span id="EfnameError"></span>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="lastName">Last name</label>
+              <input type="text" class="form-control" name="lastName" id="ElastName" onkeyup="ElastName()" placeholder="Last name" value="<%=users.address[i].last_name%>" required>
+              <span id="ElnameError"></span>
+              </div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="email">Email </label>
+            <input type="email" class="form-control" name="email" id="Eemail" onkeyup="Eemail()" placeholder="you@example.com" value="<%=users.address[i].email%>">
+            <span id="EemailError"></span>
+            </div>
+          </div>
+  
+          <div class="mb-3">
+            <label for="address">House</label>
+            <input type="text" name="house" class="form-control" id="Eaddress" onkeyup="Eaddress()" placeholder="1234 Main St" value="<%=users.address[i].house%>" required>
+            <span id="EhouseError"></span>
+            </div>
+          </div>
+  
+          <div class="mb-3">
+            <label for="address2">Land Mark </label>
+            <input type="text" name="landMark" class="form-control" id="Elandmark" onkeyup="Elandmark()" placeholder="land mark" value="<%=users.address[i].land_mark%>">
+            <span id="ELandMarkError"></span>
+          </div>
+          <div class="mb-3">
+            <label for="address2">Town </label>
+            <input type="text" name="town" class="form-control" id="Etown" onkeyup="Etown()" placeholder="Town" value="<%=users.address[i].town%>">
+            <span id="EownError"></span>
+          </div>
+          <div class="row">
+            <div class="col-md-4 mb-3">
+              <label for="state">State</label>
+              <span id="EstateError"></span>
+              <select class="custom-select d-block w-100" id="Estate" onkeyup="Estate()" name="state" value="<%=users.address[i].state%>" required>
+                <option value="">Choose...</option>
+                <option>California</option>
+              </select>
+              </div>
+            </div>
+            <div class="col-md-3 mb-3">
+              <label for="zip">PIN CODE</label>
+              <input type="number" class="form-control" name="pinCode" id="EpinCode" onkeyup="EpinCode()" placeholder="pinCode" value="<%=users.address[i].pin_code%>" required>
+              <span id="EpinCodeError"></span>
+              </div>
+            </div>
+            <div class="col-md-3 mb-3">
+                <label for="zip">MOBILE NUMBER</label>
+                <input type="number" class="form-control" name="phone" id="Ephone" onkeyup="Ephone()" placeholder="enter the mobile number" value="<%=users.address[i].phone%>" required>             
+                <span id="EmobileError"></span>
+                </div>
+              </div>
+          </div>
+          <button onclick="return editAddress()" class="btn btn-primary btn-lg btn-block" type="submit">Done</button>
+        </form>
+          <% }} %>
+</div>
+<%- include('../layouts/footer.ejs') %>

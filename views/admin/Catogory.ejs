@@ -1,0 +1,112 @@
+<%- include('../layouts/header.ejs') %>
+
+            <!-- PAGE INNER
+            ================================================== -->
+            <div class="page-inner">
+
+                <!-- PAGE MAIN WRAPPER
+                ================================================== -->
+                <div id="main-wrapper">
+                    <!-- row -->
+                    <div class="row align-items-center grid-margin">
+                        
+                        <div class="col-12">
+                            <div class="card card-white">
+                                <div class="card-body row align-items-center">
+                                    <div class="col-12 col-sm">
+                                        <h4 class="mb-4 mb-sm-0 text-center text-sm-start">Category</h4>
+                                    </div>
+                              
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end row -->
+
+                    <!-- row -->
+                    <div class="row">
+                        <div class="col-12 grid-margin">
+                            <div class="card card-white">
+                                <div class="card-body slimscroll">
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead class="bg-light">
+                                                <tr>
+                                                    <th scope="col">
+                                                        <div class="custom-control custom-checkbox mb-0">
+                                                            <input type="checkbox" class="form-check-input" id="exampleCheck">
+                                                        </div>
+                                                    </th>
+                                                    <th scope="col">ID</th>
+                                                   
+                                                    <th scope="col">Name</th>
+                                                    <th scope="col">Type</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                               
+                                                 
+                                                <% if(catogory.length >0){%>
+                                                    <% for(let i=0;i<catogory.length;i++){%>
+                                            
+                                                  <tr>
+                                                    <th scope="row">
+                                                        <div class="custom-control custom-checkbox mb-0">
+                                                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                                        </div>
+                                                    </th>
+                                                    <td><%= i+1 %></td>
+                                                    
+                                                    <td><%= catogory[i].name %></td>
+                                                    
+                                                    <td><button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal<%= i %>">
+                                                        delete
+                                                    </button></td>
+                                                 
+                                                   <!-- Button trigger modal -->
+                                                </tr>
+                                              
+                                                <%}}%>                                                 
+                                            </tbody>
+                                        </table>
+                                        <% for(let i=0;i<catogory.length;i++){%>
+                                            <div class="modal fade" id="exampleModal<%= i %>" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                              <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                  <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Are you sure?</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                  </div>
+                                                  <div class="modal-body">
+                                                    <h3>Do you really want to delete the <%= catogory[i].name %>?</h3>
+                                                  </div>
+                                                  <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                    <a class="btn btn-secondary" href="/admin/delete_category?id=<%= catogory[i]._id %>">Delete</a>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          <%}%>
+                                          
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>      
+            </div>
+              <!-- Modal -->
+                    
+            <% if (message != null) { %>
+                <script>
+                      swal({
+                        title: "error!",
+                        text: " <%= message %> ",
+                        icon: "warning",
+                        timer:1000,
+                        showConfirmButton: false
+                      })
+              </script>
+              <% } %>
+<%- include('../layouts/footer.ejs') %>

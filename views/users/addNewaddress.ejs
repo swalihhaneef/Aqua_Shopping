@@ -1,0 +1,85 @@
+
+<%- include('../layouts/userheader.ejs') %>
+
+<div class="a col-md-8 order-md-1" style="margin-top: 100px;">
+    <h4 class="mb-3">Add New address</h4>
+<form class="needs-validation" method="post" action="/addDetails" novalidate>
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="firstName">First name</label>
+        <input type="text" class="form-control" name="firstName" id="firstName" placeholder="First name" onkeyup="firstName()" required>
+        <div id="fnameError">
+          
+        </div>
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="lastName">Last name</label>
+        <input type="text" class="form-control" name="lastName" id="lastName" placeholder="Last name" onkeyup="lastName()" required>
+        <div id="lnameError">
+       
+        </div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="email">Email </label>
+      <input type="email" class="form-control" name="email" id="email" onkeyup="email()" placeholder="you@example.com">
+      <div id="emailError">
+       
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="house">House</label>
+      <input type="text" name="house" class="form-control" id="address" onkeyup="address()" placeholder="1234 Main St" required>
+      <div id="houseError">
+        
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="land mark">Land Mark </label>
+      <input type="text" name="landMark" class="form-control" id="landmark" onkeyup="landmark()" placeholder="land mark">
+      <div id="LandMarkError">
+        
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="town">Town </label>
+      <input type="text" name="town" class="form-control" id="town" onkeyup="town()" placeholder="Town">
+      <div id="townError">
+        
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 mb-3">
+        <label for="state">State</label>
+        <select class="custom-select d-block w-100" id="state" name="state" onkeyup="state()" required>
+          <option value="">Choose...</option>
+          <option>California</option>
+        </select>
+        <div id="stateError">
+          
+        </div>
+      </div>
+      <div class="col-md-3 mb-3">
+        <label for="zip">PIN CODE</label>
+        <input type="number" class="form-control" name="pinCode" id="pinCode" onkeyup="pinCode()" placeholder="pinCode" required>
+        <div id="pinCodeError">
+         
+        </div>
+      </div>
+      <div class="col-md-3 mb-3">
+          <label for="phone">MOBILE NUMBER</label>
+          <input type="number" class="form-control" name="phone" id="phone" onkeyup="phone()" placeholder="enter the mobile number" required>
+          <div id="mobileError">
+           
+          </div>
+        </div>
+    </div>
+    <hr class="mb-4">
+
+    <hr class="mb-4">
+    <button class="btn btn-primary btn-lg btn-block" onclick="return addAddress()" type="submit">submit</button>
+  </form>
+  </div>
+  <%- include('../layouts/userfooter.ejs') %>

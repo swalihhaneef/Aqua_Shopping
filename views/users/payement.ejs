@@ -1,0 +1,142 @@
+
+<%- include('../layouts/userheader.ejs') %>
+<div class="container-fluid">
+<div class="mt-4" style="margin-bottom: 30px;">
+    <!-- For demo purpose -->
+    <div class="row mb-4">
+        <div class="col-lg-8 mx-auto text-center">
+            <h1 class="display-6"></h1>
+        </div>
+    </div> <!-- End -->
+    
+    <div class="row mx-5 my-5"  >
+        <div class="col-lg-6 mx-auto">
+            <div class="card ">
+                <div class="card-header">
+                    <div class="bg-white shadow-sm pt-4 pl-2 pr-2 pb-2">
+                        <!-- Credit card form tabs -->
+                        <ul role="tablist" class="nav bg-light nav-pills rounded nav-fill mb-3">
+                            <li class="nav-item"> <a data-toggle="pill" href="#credit-card" class="nav-link active ">  Online payement </a> </li>
+                            <li class="nav-item"> <a data-toggle="pill" href="#paypal" class="nav-link ">  Cash On Delivery </a> </li>
+                            <li class="nav-item"> <a data-toggle="pill" href="#net-banking" class="nav-link "> <i class="fas fa-mobile-alt mr-2"></i>Wallet</a> </li>
+                        </ul>
+                    </div> <!-- End -->
+                    <!-- Credit card form content -->
+                    <div class="tab-content">
+                        <!-- credit card info-->
+                        <div id="credit-card" class="tab-pane fade show active pt-3">
+                            <form role="form" onsubmit="event.preventDefault()">
+                                <div class="form-group"> <label for="username">
+                                        <h6 class="text-uppercase">hey...<%= user.name %></h6>
+                                    <span class="text-uppercase font-italic"></span>
+                                     </div>
+                                <div class="form-group"> <label for="cardNumber">
+                                        <h6>would you like to pay  ₹<%= cartData.grandTotalPrice %> using online payement</h6>
+                                    </label>
+                                    
+                                </div>
+                               
+                                <div class="card-footer">
+                                     <button type="button" onclick="razorpay()" class="subscribe btn btn-primary btn-block shadow-sm"> Confirm Payment </button>
+                            </form>
+                        </div>
+                    </div> <!-- End -->
+                    <!-- Cash On Delivery info -->
+
+                    <div id="paypal" class="tab-pane fade pt-3">
+
+                        <h6 class="pb-2">You can pay at time of delivery</h6>
+
+                        <br>
+
+                        <button type="button" ><a class="btn btn-primary" href="/order-confirm?methord=cod">Place Order</a></button>
+                        
+                        <br><br>
+
+                        <p class="text-muted"> Note: You can pay at time of delivery via Cash/UPI or ATM Card  </p>
+
+                    </div> <!-- End -->
+
+                    <!-- bank transfer info -->
+
+                    <div id="net-banking" class="tab-pane fade pt-3">
+                        <div class="form-group "> 
+                            <label for="Select Your Bank">
+                                <h6>Wallet Ballance: ₹<%= user.wallet %></h6>
+                                <h6>Amount to pay: ₹<%= cartData.grandTotalPrice %></h6>
+                                <% if(cartData.grandTotalPrice>user.wallet) {%>
+                                    <div><p class="text-danger">you dont have enough balance</p></div>
+                                    <% }else{ %>
+                            </label> 
+                         </div>
+                        <div class="form-group">
+                            <button type="button" ><a class="btn btn-primary" href="/order-confirm?methord=wallet">Proceed Payment</a></button>
+                            <p class="text-danger"></p>
+                        </div>
+                        <% } %>
+                        
+                    </div> <!-- End -->
+                    <!-- End -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div> 
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+   function razorpay(){
+        $.ajax({
+         type: "get",
+        url: '/razorpay',
+        dataType: 'json',
+        contentType: 'application/json',
+        success:(res)=>{
+console.log(res.order);
+            console.log(res.order.amount);
+            var options = {
+    "key": "rzp_test_J7k1zlWydyK2ii", // Enter the Key ID generated from the Dashboard
+    "amount": res.order.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+    "currency": "INR",
+    "name": "Acme Corp",
+    "description": "Test Transaction",
+    "image": "https://example.com/your_logo",
+    "order_id": res.order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+    "handler": function (response){
+        location.href='/order-confirm?methord=razorpay'
+    },
+    "prefill": {
+        "name": "Gaurav Kumar",
+        "email": "gaurav.kumar@example.com",
+        "contact": "9000090000"
+    },
+    "notes": {
+        "address": "Razorpay Corporate Office"
+    },
+    "theme": {
+        "color": "#3399cc"
+    }
+};
+var rzp1 = new Razorpay(options);
+rzp1.on('payment.failed', function (response){
+        alert(response.error.code);
+        alert(response.error.description);
+        alert(response.error.source);
+        alert(response.error.step);
+        alert(response.error.reason);
+        alert(response.error.metadata.order_id);
+        alert(response.error.metadata.payment_id);
+});
+   const raz =   function(e){
+    rzp1.open();
+    e.preventDefault();
+}
+raz()
+        }
+        })
+    }
+
+    
+</script>
+
+<%- include('../layouts/userfooter.ejs') %>
