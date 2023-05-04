@@ -28,8 +28,6 @@ const errorRoute = require('./routes/errorRoute')
     saveUninitialized: true
 }))
 
-
-
 mongoose.set('strictQuery', false);
 mongoose.connect('mongodb+srv://swalih:9207628712@cluster0.268ectw.mongodb.net/personoperations', (err) => {
     if (err) {
