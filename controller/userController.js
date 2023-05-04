@@ -1111,7 +1111,7 @@ const orderSuccess = async (req, res) => {
         cartdata.item = []
         cartdata.grandTotalPrice = 0
         await cartdata.save()
-        res.render('successPage')
+        res.render('successPage',orderData)
 
     } catch (error) {
         console.log(error);
