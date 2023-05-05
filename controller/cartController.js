@@ -39,7 +39,7 @@ const addToCart = async (req, res) => {
                         price: product.price, total: product.price
                     }, grandTotalPrice: product.price
                 })
-                res.send({ success: true, message: `looooooooooo` })
+                res.send({ success: true, message: `This product added to your cart successfully` })
             }
         } else {
             res.redirect('/login')

@@ -7,6 +7,26 @@
   border-collapse: collapse;
   margin-bottom: 20px;
 }
+table {
+  width: 100%;
+  table-layout: fixed;
+  overflow-x: hidden;
+}
+
+.wrap-table-shopping-cart {
+	  overflow-x: auto;
+	  -webkit-overflow-scrolling: touch;
+	}
+	.wrap-table-shopping-cart::-webkit-scrollbar {
+	  height: 5px;
+	}
+	.wrap-table-shopping-cart::-webkit-scrollbar-track {
+	  background-color: #f5f5f5;
+	}
+	.wrap-table-shopping-cart::-webkit-scrollbar-thumb {
+	  background-color: #ccc;
+	}
+
 
 .table-shopping-cart th, .table-shopping-cart td {
   padding: 10px;
@@ -32,7 +52,7 @@
 	<form class="bg0 p-t-75">
 		<div class="container">
 			<div class="row">
-				<% if (cart > 0){ %>
+				<% if (cart){ %>
 				<% if(cart.item.length>0){%>
 				<div class="col-lg-10 col-xl-7 m-lr-auto m-b-50">
 					<div class="m-l-25 m-r--38 m-lr-0-xl">
@@ -41,11 +61,11 @@
 							
 							<table class="table-shopping-cart">
 								<tr class="table_head">
-									<th  >Product</th>    
-									<th >Price</th>
+									<th   >Product</th>    
+									<th  >Price</th>
 									<th >Quantity</th>
-									<th class="text-center">Total</th>
-									<th class="text-center">action</th>                                
+									<th class="text-center" >Total</th>
+									<th class="text-center" >action</th>                                
 								</tr>                               
                                 <% for( let i = 0; i <cart.item.length; i++ ) { %> 									
                                     <tr class="table_row">
@@ -72,7 +92,7 @@
 												</div> 
 											</div>  
 										</td>
-                                        <td class=""  id="<%=cart.item[i].product._id %>price" >₹<%=cart.item[i].total%> </td>
+                                        <td class="text-center"  id="<%=cart.item[i].product._id %>price" >₹<%=cart.item[i].total%> </td>
 										<td class="text-center"><a href="/delete-item?id=<%=cart.item[i].product._id %>">
 											<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M19 4h-3.5l-1-1h-5l-1 1H5v2h14M6 19a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V7H6v12Z"/></svg>
 										</a></td>
