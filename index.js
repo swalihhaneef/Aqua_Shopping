@@ -12,24 +12,26 @@ app.use(nocache())
 const bodyParser=require('body-parser')
 
 
+require('dotenv').config()
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}))
 
 app.set('view engine','ejs');
+
 
 const userRouter = require('./routes/userRoute')
 const adminRoute = require('./routes/adminRoute')
 const errorRoute = require('./routes/errorRoute')
  //app.use(express.static(path.join(__dirname,('../public'))))
  app.use(session({
-    secret:config.sessionSecret,
+    secret:process.env.sessionSecret,
     resave: true,
     cookie:({maxAge:6000000}),
     saveUninitialized: true
 }))
-
 mongoose.set('strictQuery', false);
-mongoose.connect('mongodb+srv://swalih:9207628712@cluster0.268ectw.mongodb.net/personoperations', (err) => {
+mongoose.connect(process.env.mongo, (err) => {
     if (err) {
         console.log('DataBase not connected')
     } else {
